@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的订单</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    {include file="common/import" /}
+    <link rel="stylesheet" href="__STATIC__/index/css/order.css">
+    <style>
+        .tabs-list.showTabs{
+            display: block;
+        }
+        .tabs-list{
+            display: none;
+        }
+    </style>
+</head>
+<body style="background-color: #ccc">
+    <div class="header">
+        <div id="back">
+            <a href="javascript:history.go(-1)">
+                <span></span>
+            </a>
+            <div class="white-block">我的订单</div>
+        </div>
+        <div class="order-list">
+            <ul>
+                <li class="active"><a href="javascript:void(0)" onclick="order.liListClick(this)" data-optinos="#all-order">全部</a></li>
+                <li><a href="javascript:void(0)" onclick="order.liListClick(this)" data-optinos="#paying-order">待付款</a></li>
+                <li><a href="javascript:void(0)" onclick="order.liListClick(this)" data-optinos="#finished-order" finished>已成功</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main">
+        <div id="all-order" class="tabs-list showTabs">
+            <ul>
+                {volist name='orderInfo' id='items'}
+                <li class="clearfix">
+                    <a href="">
+                        <div class="title">
+                            <span class="name">北京云虎票务专营店</span>
+                            <span class="status">
+                                {if condition="($items['orderStatus'] == 1)"} 待付款
+                                {elseif condition="$items['orderStatus'] eq 0"/}交易取消
+                                {else /} 已完成
+                                {/if}
+                            </span>
+                        </div>
+                        <div class="info_container">
+                            <div class="carimg"></div>
+                            <div class="info">
+                                <p class="dir">{$items['startStation']}-{$items['endStation']}</p>
+                                <p class="trainNum">
+                                    {$items['trainNum']} 新空快速
+                                </p>
+                                <p class="time">出发时间 {$items['time']} {$items['startTime']}</p>
+                            </div>
+                        </div>
+                        <div class="btn clearfix">
+                            {if condition="($items['orderStatus'] == 1)"}
+                            <button>
+                                付&nbsp;款
+                            </button>
+                            {else /}
+                            <button>
+                                删除订单
+                            </button>
+                            {/if}
+                        </div>
+                    </a>
+                </li>
+                {/volist}
+            </ul>
+        </div>
+        <!-- all-order -->
+
+        <div id="paying-order" class="tabs-list">
+            paying-order
+        </div>
+        <div id="finished-order" class="tabs-list">
+            finished-order
+        </div>
+    </div>
+    <!--main-->
+</body>
+<script>
+    var obj;
+    var infoList = new Array();
+    {volist name='orderInfo' id='vo'}
+    obj = {
+        oid:"{$vo.oid}",
+        uid:"{$vo.uid}",
+        orderStatus:"{$vo.orderStatus}",
+        cashTotal:"{$vo.cashTotal}",
+        payTime:"{$vo.payTime}",
+        operation:"{$vo.operation}",
+        reTrickRecord:"{$vo.reTrickRecord}",
+        alterTrickRecord:"{$vo.alterTrickRecord}",
+        orderStatus:"{$vo.orderStatus}",
+        startStation:"{$vo.startStation}",
+        endStation:"{$vo.endStation}",
+        trainNum:"{$vo.trainNum}",
+        trainType:"{$vo.trainType}",
+        time:"{$vo.time}",
+        startTime:"{$vo.startTime}",
+
+    }
+    infoList.push(obj);
+    {/volist}
+
+    var payingOrderList = new Array();
+    var finnishOrderList = new Array();
+    infoList.map(function(value,index){
+        if(value['orderStatus']==1){
+            payingOrderList.push(value);
+        }else {
+            finnishOrderList.push(value);
+        }
+    })
+
+</script>
+<script src="__STATIC__/index/js/order.js"></script>
+</html>

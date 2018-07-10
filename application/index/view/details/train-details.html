@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路友通-详细信息</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="__STATIC__/index/css/train-details.css">
+</head>
+<body class="">
+{include file="common/import" /}
+{include file="common/header" /}
+<main>
+    <div id="back">
+        <a href="javascript:history.go(-1)">
+            <span></span>
+        </a>
+        <div class="white-block"></div>
+    </div>
+    <div class="wrapper" >
+        <div class="lists">
+            <p class="start_img"></p>
+            <p></p>
+            <p class="end_img"></p>
+        </div>
+       {volist name="info" id="item"}
+            <div class="lists">
+                <p class="Ltime">{$item.start_time}</p>
+                <p class="trainNum">{$item.train_no}</p>
+                <p class="Ltime">{$item.end_time}</p>
+            </div>
+            <div class="lists">
+                <p class="Lstation">{$item.start_station}</p>
+                <p class="longTime">{$item.run_time}</p>
+                <p class="Lstation">{$item.end_station}</p>
+            </div>
+            <div class="lists">
+                <span>类型</span>
+                <span>价格</span>
+                <span>状态</span>
+                <span></span>
+            </div>
+            {if "item.train_type eq 'G'"}
+                {volist name="item.price_list" id="price"}
+                    <div class="lists">
+                        <span class="price-type">{$price.price_type}</span>
+                        <span>{$price.price}</span>
+                        <span>有票</span>
+                        <span><a href="javascript:void(0)" onclick="td.buyTricket(this)"  data-optinos='{$listTrains}' data-price-type="{$price.price_type}" data-price = "{$price.price}">预订</a></span>
+                    </div>
+                {/volist}
+            {elseif "item.train_type eq 'D'"}
+                <div class="lists">
+                    <span class="price-type">{$price.price_type}</span>
+                    <span>{$price.price}</span>
+                    <span>有票</span>
+                    <span><a href="javascript:void(0)" onclick="td.buyTricket(this)" data-optinos='{$listTrains}' data-price-type="{$price.price_type}" data-price = "{$price.price}">预订</a></span>
+                </div>
+            {else /}
+                <div class="lists">
+                    <span class="price-type">{$price.price_type}</span>
+                    <span>{$price.price}</span>
+                    <span>有票</span>
+                    <span><a href="javascript:void(0)" onclick="td.buyTricket(this)"  data-optinos='{$listTrains}' data-price-type="{$price.price_type}" data-price = "{$price.price}">预订</a></span>
+                </div>
+            {/if}
+        {/volist}
+    </div>
+</main>
+<footer>
+    <div class="list icon1 active" index="index">
+        <a href="{$Think.config.url}/index">
+            <div class="items-icon">
+            </div>
+            <span>站站</span>
+        </a>
+    </div>
+    <div class="list icon2" index="train">
+        <a href="{$Think.config.url}/train">
+            <div class="items-icon">
+            </div>
+            <span>车次</span>
+        </a>
+    </div>
+    <div class="list icon3" index="station">
+        <a href="{$Think.config.url}/station">
+            <div class="items-icon">
+            </div>
+            <span>站点</span>
+        </a>
+    </div>
+    <div class="list icon4" index="user">
+        <a href="{$Think.config.url}/user">
+            <div class="items-icon">
+            </div>
+            <span>用户</span>
+        </a>
+    </div>
+</footer>
+</body>
+<script>
+    var url = "{$Think.config.url}";
+</script>
+<link rel="stylesheet" href="__STATIC__/index/css/index.css">
+<script src="__STATIC__/index/js/index.js"></script>
+<script src="__STATIC__/index/js/train-details.js"></script>
+</html>

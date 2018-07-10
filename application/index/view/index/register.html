@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="__STATIC__/index/css/otherCSS.css">
+    <style>
+        .err-area{
+            display: none;
+            width: 100%;
+            font: 15px/30px "";
+            box-sizing: border-box;
+            padding-left: 12%;
+            text-align: left;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+{include file="common/import" /}
+<header>
+    <span onclick="spanclick()">路友通</span>
+    <div onclick="search()" class="search">免费注册</div>
+</header>
+<main>
+    <div id="back">
+        <a href="javascript:history.go(-1)">
+            <span></span>
+        </a>
+        <div class="white-block"></div>
+    </div>
+
+    <form id="register" action="register" method="post">
+        <input type="hidden" name="__token__" value="{$Request.token}"/>
+        <div class="middle-wrapper">
+            <div class="list">
+                <label for="">用户名</label>
+                <input type="text"  name="username" id="username" placeholder="请输入用户名">
+            </div>
+
+            <div class="list">
+                <label for="">登录密码</label>
+                <input type="password" name="password" id="password" placeholder="请输入密码">
+            </div>
+
+            <div class="list">
+                <label for="">确认密码</label>
+                <input type="password" name="repassword" id="repassword" placeholder="请再次输入密码">
+            </div>
+            <div class="list">
+                <label for="">联系方式</label>
+                <input type="text"  name="tel" id="tel" placeholder="请输入联系方式">
+            </div>
+            <div class="list code">
+                <label for="">验证码</label>
+                <input type="text" name="code" id="code" placeholder="验证码">
+                <img id="codeimg" src="{:captcha_src()}" alt="验证码">
+            </div>
+            <div class="list" style="border-bottom: none">
+                <div class="err-area">
+                    err-area
+                </div>
+            </div>
+
+            <div class="bottom-swapper">
+                <input type="submit" id="submit"  value="注册" style="outline: none"/>
+            </div>
+        </div>
+    </form>
+
+</main>
+{include file="common/footer" /}
+</body>
+<script>
+    var urlimg = "{:captcha_src()}";
+    var url = "{$Think.config.url}";
+</script>
+<script src="__STATIC__/index/js/register.js"></script>
+</html>

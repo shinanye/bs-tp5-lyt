@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路友通</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="__STATIC__/index/css/user.css">
+    <style>
+        .block{
+            display: flex;
+            justify-content: space-between;
+            border-bottom:1px solid #ccc ;
+            font:15px/35px "";
+        }
+        .block label{
+            width: 45%;
+            box-sizing: border-box;
+            padding-left: 25%;
+
+        }
+        .block span{
+            width: 55%;
+            padding-left: 2%;
+
+        }
+    </style>
+</head>
+<body>
+{include file="common/import" /}
+<header>
+    <span onclick="spanclick()">路友通</span>
+    <div onclick="search()" class="search">用户信息</div>
+</header>
+<main>
+    <div id="back">
+        <a href="javascript:history.go(-1)">
+            <span></span>
+        </a>
+        <div class="white-block"></div>
+    </div>
+    <ul style="margin-top: 50px">
+        <h4 style="text-align: center;font: 17px/50px '';border-bottom: 1px solid blue ">当前用户个人信息</h4>
+        {volist name='info' id='items'}
+
+            <li class="block">
+                <label for="">用户名:</label>
+                <span> {$items['lname']}</span>
+            </li>
+            <li class="block">
+                <label for="">姓名:</label>
+                <span> {$items['uname']}</span></li>
+            <li class="block">
+                <label for="">性别:</label>
+                <span> {$items['usex']}</span>
+            </li>
+            <li class="block">
+                <label for="">联系方式:</label>
+                <span> {$items['utel']}</span>
+            </li>
+        <li class="block">
+            <label for="">邮箱</label>
+            <span> {$items['uEmail']}</span>
+        </li>
+        {/volist}
+    </ul>
+</main>
+
+<footer>
+    <div class="list icon1" index="index">
+        <a href="{$Think.config.url}/index">
+            <div class="items-icon">
+            </div>
+            <span>站站</span>
+        </a>
+    </div>
+    <div class="list icon2" index="train">
+        <a href="{$Think.config.url}/train">
+            <div class="items-icon">
+            </div>
+            <span>车次</span>
+        </a>
+    </div>
+    <div class="list icon3" index="station">
+        <a href="{$Think.config.url}/station">
+            <div class="items-icon">
+            </div>
+            <span>站点</span>
+        </a>
+    </div>
+    <div class="list icon4 active" index="user">
+        <a href="{$Think.config.url}/user">
+            <div class="items-icon">
+            </div>
+            <span>用户</span>
+        </a>
+    </div>
+</footer>
+
+</body>
+</html>

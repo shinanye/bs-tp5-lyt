@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <title>路友通后台登录</title>
+    <meta name="keywords" content="路友通">
+    <meta name="description" content="路友通，是一个关注唯一的应用。">
+    <link href="__STATIC__/hui/static/h-ui.admin/css/H-ui.login.css" rel="stylesheet" type="text/css" />
+    <style>
+        .err-area{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+{include file="common/import"/}
+<div class="header">
+    <div class="l"> 路友通后台注册</div>
+</div>
+<div class="loginWraper">
+    <div class="loginBox" style="height: auto;box-sizing: border-box;background: none;border: 1px solid #a9d1ec;top: 46%;padding-top: 0;padding-bottom: 20px;border-radius: 10px;">
+        <form class="form form-horizontal" id="registerform" action="" method="post">
+            <input type="hidden" name="__token__" value="{$Request.token}"/>
+            <div class="row cl">
+                <label class="form-label col-xs-3" style="color: #fff;"><i class="Hui-iconfont">&#xe60d;</i></label>
+                <div class="formControls col-xs-8">
+                    <input type="text" name="uname" placeholder="用户名" class="input-text size-L">
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-3" style="color: #fff;"><i class="Hui-iconfont">&#xe60e;</i></label>
+                <div class="formControls col-xs-8">
+                    <input type="password" id="pwd" name="pwd" placeholder="密码" class="input-text size-L">
+                </div>
+            </div>
+
+            <div class="row cl">
+                <label class="form-label col-xs-3" style="color: #fff;"><i class="Hui-iconfont">&#xe60e;</i></label>
+                <div class="formControls col-xs-8">
+                    <input type="password" name="repwd" placeholder="确认密码" class="input-text size-L">
+                </div>
+            </div>
+
+            <div class="row cl">
+                <label class="form-label col-xs-3" style="color: #fff;"><i class="Hui-iconfont">&#xe6c7;</i></label>
+                <div class="formControls col-xs-8">
+                    <input type="text" id="utel" name="utel" placeholder="联系方式" class="input-text size-L">
+                </div>
+            </div>
+
+            <div class="row cl">
+                <label class="form-label col-xs-3" style="color: #fff;"><i class="Hui-iconfont">&#xe63b;</i></label>
+                <div class="formControls col-xs-8">
+                    <input type="email" name="uEmail" placeholder="邮箱" class="input-text size-L">
+                </div>
+            </div>
+
+            <div class="row cl">
+                <div class="formControls col-xs-8 col-xs-offset-3">
+                    <input class="input-text size-L" type="text" name="code" placeholder="验证码"  style="width:150px;">
+                   <a id="code" href="{:url('admin/index/sendSMS')}" style="color: white;">点击发送验证码</a> </div>
+            </div>
+
+            <div class="row cl">
+                <div class="formControls col-xs-8 col-xs-offset-3">
+                    <label for="online"  style="color: white;">
+                        <input type="checkbox"  id="online" value="checked">
+                        我已阅读并接受
+                        <a href="javascript:;" style="color: orangered">《路由通用户服务协议》</a>
+                    </label>
+                </div>
+            </div>
+
+            <div class="row cl">
+                <div class="formControls col-xs-8 col-xs-offset-3">
+                    <label class="err-area"  style="color: red;">
+                    </label>
+                </div>
+            </div>
+
+            <div class="row cl">
+                <div class="formControls col-xs-8 col-xs-offset-3">
+                    <input name="" type="submit" class="btn btn-success radius size-L" style="margin: auto 20px;" value="&nbsp;注&nbsp;&nbsp;&nbsp;&nbsp;册&nbsp;">
+                    <input name="" type="reset" class="btn btn-default radius size-L" value="&nbsp;重&nbsp;&nbsp;&nbsp;&nbsp;置&nbsp;">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!--<div class="footer">路友通&copy;mai</div>-->
+<script>
+    DD_belatedPNG.fix('*');
+    var url = "{$Think.config.url}";
+</script>
+<script type="text/javascript" src="__STATIC__/admin/js/register.js"></script>
+</body>
+</html>

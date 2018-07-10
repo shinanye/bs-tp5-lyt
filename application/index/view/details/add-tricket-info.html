@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路友通-详细信息</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="__STATIC__/index/css/train-details.css">
+    <style>
+        .left{
+            width: 40%;
+        }
+        .right{
+            width: 70%;
+        }
+    </style>
+</head>
+<body class="">
+{include file="common/import" /}
+{include file="common/header" /}
+<main>
+    <div id="back">
+        <a href="javascript:history.go(-1)">
+            <span></span>
+        </a>
+        <div class="white-block"></div>
+    </div>
+    <div class="wrapper" >
+        <div class="lists" style="text-align: center;font: 16px/30px '';box-sizing: border-box;padding-left:37%">
+            {$time}
+        </div>
+        <div class="lists">
+            <p class="start_img"></p>
+            <p></p>
+            <p class="end_img"></p>
+        </div>
+
+        <div class="lists">
+            <p class="Ltime">{$item.start_time}</p>
+            <p class="trainNum">{$item.train_no}</p>
+            <p class="Ltime">{$item.end_time}</p>
+        </div>
+        <div class="lists" style="border-bottom: 1px solid #ccc">
+            <p class="Lstation">{$item.start_station}</p>
+            <p class="longTime">{$item.run_time}</p>
+            <p class="Lstation">{$item.end_station}</p>
+        </div>
+        <div class="lists" style="border-bottom: 1px solid #ccc">
+            <div class="left">
+                <i>{$zuoType}</i>
+                <i>￥{$price}></i>
+            </div>
+            <div class="right">
+                接受无座
+                <input type="checkbox" name="wuzuo" id="wuzuo">
+            </div>
+        </div>
+
+        <div class="lists" style="border-bottom: 1px solid #ccc">
+            <div class="left" style="width: 50%; border-right: 1px solid #ccc">
+                <div class="addPeople" data-optinos=".add_people" onclick="td.addpepleInfo(this)" >
+                    添加/修改乘车人
+                </div>
+            </div>
+            <div class="right">
+                <div class="addchildren" onclick="td.addchildren()">
+                    添加儿童
+                </div>
+            </div>
+        </div>
+
+        <div class="pay">
+            <div class="price">
+                <i>总价：</i>
+                <i class="total">553</i>元
+            </div>
+            <div class="buyTrick" onclick="td.buyTrick()">
+                付款
+            </div>
+        </div>
+    </div>
+
+
+    <div class="info_wrapper">
+
+    </div>
+
+
+    <div id="add_info_wrapper">
+        <div class="add_people">
+            <div class="lists">
+                <div class="quxiao" onclick="td.cancel('#add_info_wrapper','.add_people')">
+                    取消
+                </div>
+                <div class="sure" onclick="td.sureClick();">
+                    确定
+                </div>
+            </div>
+            <div class="lists" style="background-color: #fff;color: #000;border-bottom: 1px solid #ccc">
+                <i data-optinos=".add-new-peopel" style="border-right: 1px solid #ccc;" onclick="td.addNewPeoInfo(this)">+新增成人&emsp;</i>
+            </div>
+            <div class="infoWrapper">
+                {volist name="info" id="items"}
+                <div class="info">
+                    <i class="alter" data-optinos="{$items.id}" data-name="name" data-card="idcard" onclick="td.alterInfo(this)"></i>
+                    <div class="peoInfo">
+                        <i>{$items.uidName}</i><br>
+                        <i>身份证</i>
+                        <i>{$items.uidCard}</i>
+                    </div>
+                    <div class="inp">
+                        <input type="checkbox" data-optinos="{$items.id}" name="ifChoose" class="ifChoose">
+                    </div>
+                </div>
+                {/volist}
+            </div>
+        </div>
+    </div>
+
+    <div id="add-new-people-wrapper" ondragstart="return false">
+        <div class="add-new-peopel">
+            <div class="lists" style="border-bottom:1px solid #ccc;font: 17px/45px '';background-color: #abe;color: white">
+                <a href="javascript:void(0)" class="quxiao" onclick="td.cancel('#add-new-people-wrapper','.add-new-peopel');" style="width: 20%;color:white;text-align: center;">
+                    取消
+                </a>
+                <div class="sure" style="width: 80%;text-align: center;">
+                    新增乘车人
+                </div>
+            </div>
+            <form>
+                <div class="lists add">
+                    <label for="">姓名</label>
+                    <input type="text" id="names" name="names" placeholder="请输入姓名，例如：张三">
+                </div>
+                <div class="lists add">
+                    <label for="">乘客类型</label>
+                    <input type="text" value="成人" disabled style="color: #ccc">
+                </div>
+                <div class="lists add">
+                    <label for="">证件类型</label>
+                    <input type="text" value="身份证" disabled style="color: #ccc">
+                </div>
+                <div class="lists add">
+                    <label for="">证件号码</label>
+                    <input type="text" name="IDCard"  id="IDCard" placeholder="请输入证件号码">
+                </div>
+
+                <div class="bottom-swapper">
+                    <button class="submit">确定</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+<footer>
+    <div class="list icon1 active" index="index">
+        <a href="{$Think.config.url}/index">
+            <div class="items-icon">
+            </div>
+            <span>站站</span>
+        </a>
+    </div>
+    <div class="list icon2" index="train">
+        <a href="{$Think.config.url}/train">
+            <div class="items-icon">
+            </div>
+            <span>车次</span>
+        </a>
+    </div>
+    <div class="list icon3" index="station">
+        <a href="{$Think.config.url}/station">
+            <div class="items-icon">
+            </div>
+            <span>站点</span>
+        </a>
+    </div>
+    <div class="list icon4" index="user">
+        <a href="{$Think.config.url}/user">
+            <div class="items-icon">
+            </div>
+            <span>用户</span>
+        </a>
+    </div>
+</footer>
+</body>
+<script>
+    var url = "{$Think.config.url}";
+    var infoList = new Array();
+    var price = "{$price}";
+        price = parseFloat(price);
+
+    var obj;
+    {volist name="info" id="vo"}
+       obj = {
+           id:"{$vo.id}",
+           names:"{$vo.uidName}",
+           idCard:"{$vo.uidCard}"
+       }
+        infoList.push(obj);
+    {/volist}
+    console.log(infoList);
+</script>
+<link rel="stylesheet" href="__STATIC__/index/css/index.css">
+<script src="__STATIC__/index/js/index.js"></script>
+<script src="__STATIC__/index/js/train-details.js"></script>
+</html>

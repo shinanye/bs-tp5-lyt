@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <title>路友通后台登录</title>
+    <meta name="keywords" content="路友通">
+    <meta name="description" content="路友通，是一个关注唯一的应用。">
+    <link href="__STATIC__/hui/static/h-ui.admin/css/H-ui.login.css" rel="stylesheet" type="text/css" />
+    <style>
+        div{
+
+        }
+    </style>
+</head>
+<body>
+{include file="common/import"/}
+
+<div class="mian" style="padding:100px 0 0 0;width: 80%;border: 1px solid #000; margin: auto;">
+    <form action="{:url('admin/index/trains')}" method="get">
+        <div>
+            <label for="">始发站</label>
+            <input type="text" name="start" placeholder="始发站">
+        </div>
+
+        <div>
+            <label for="">终点站</label>
+            <input type="text" name="end" placeholder="终点站">
+        </div>
+
+        <div>
+            <label for="">出发时间</label>
+            <input type="text" name="time" placeholder="出发时间">
+        </div>
+
+        <div>
+            <label for="">车次类型</label>
+            <input type="text" name="trainNum" placeholder="车次">
+        </div>
+
+        <div>
+            <input type="submit" name="submit" value="submit">
+        </div>
+    </form>
+</div>
+<div class="footer">路友通&copy;mai</div>
+</body>
+</html>

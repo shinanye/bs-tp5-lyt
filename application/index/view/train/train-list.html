@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路友通</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="__STATIC__/index/css/search_station.css">
+    <link rel="stylesheet" href="__STATIC__/index/css/train.css">
+
+</head>
+<script>
+    var current = ("{$current}").length>0?("{$current}"):"";
+</script>
+<body class="">
+{include file="common/import" /}
+<header>
+    <span>路友通</span>
+    <div class="search">火车列表查询</div>
+</header>
+<main>
+    <div id="back" style="margin-bottom: 0">
+        <a href="{$Think.config.url}/train">
+            <span></span>
+        </a>
+        <div class="white-block"></div>
+    </div>
+    <div class="basic_info">
+        {$trainNum}车次基本信息
+    </div>
+    <div class="wrapper" >
+        <div class="lists">
+            <p class="start_img"></p>
+            <p></p>
+            <p class="end_img"></p>
+        </div>
+
+        <div class="lists">
+            <p class="Ltime">{$train_info.starttime}</p>
+            <p class="trainNum">{$train_info.name}</p>
+            <p class="Ltime">{$train_info.endtime}</p>
+        </div>
+        <div class="lists">
+            <p class="Lstation">{$train_info.start}</p>
+            <p class="longTime"></p>
+            <p class="Lstation">{$train_info.end}</p>
+        </div>
+
+        <div class="basic_info" style="margin: 5% 0;">
+            经过站点详细信息
+        </div>
+
+        <div class="lists">
+            <p>起点站</p>
+            <p>到达时间</p>
+            <p>发车时间</p>
+        </div>
+        {volist name="train_list" id="items"}
+            <div class="lists">
+                <p> {$items.station_name}</p>
+                <p>{$items.arrived_time}</p>
+                <p>{$items.arrived_time}</p>
+            </div>
+        {/volist}
+     </div>
+</main>
+{include file="common/footer"/}
+</body>
+<link rel="stylesheet" href="__STATIC__/index/css/index.css">
+<script src="__STATIC__/index/js/index.js"></script>
+<script>
+    footer.trainListClick();
+</script>
+</html>

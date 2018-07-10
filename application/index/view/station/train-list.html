@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路友通</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="__STATIC__/index/css/search_station.css">
+    <link rel="stylesheet" href="__STATIC__/index/css/station.css">
+
+</head>
+<script>
+    var current = ("{$current}").length>0?("{$current}"):"";
+</script>
+<body class="">
+{include file="common/import" /}
+<header>
+    <span>路友通</span>
+    <div class="search">火车列表查询</div>
+</header>
+
+<main>
+    <div id="back">
+        <a href="{$Think.config.url}/station">
+            <span></span>
+        </a>
+        <div class="white-block"></div>
+    </div>
+    <div class="top-wrapper">
+
+        <ul class="train-list">
+            <li class="list">
+                <p>站点名</p>
+                <p>站点英文名</p>
+                <p>站点名简写</p>
+            </li>
+            {volist name="trainInfo" id="item"}
+                <li class="list">
+                    <p>{$item.sta_name}</p>
+                    <p>{$item.sta_ename}</p>
+                    <p>{$item.sta_code}</p>
+                </li>
+            {/volist}
+        </ul>
+    </div>
+</main>
+{include file="common/footer"/}
+</body>
+<link rel="stylesheet" href="__STATIC__/index/css/index.css">
+<script src="__STATIC__/index/js/index.js"></script>
+<script>
+    footer.trainListClick();
+</script>
+</html>

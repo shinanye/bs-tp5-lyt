@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="__STATIC__/index/css/otherCSS.css">
+</head>
+<body>
+{include file="common/import" /}
+<header>
+    <span onclick="spanclick()">路友通</span>
+    <div onclick="search()" class="search">用户登录</div>
+</header>
+<main>
+    <div id="back">
+        <a href="index">
+            <span></span>
+        </a>
+        <div class="white-block"></div>
+    </div>
+
+    <div class="middle-wrapper">
+        <div class="list">
+            <label for="">用户名</label>
+            <input type="text"  name="username" id="username" placeholder="请输入账户密码">
+        </div>
+        <div class="list">
+            <label for="">登录密码</label>
+            <input type="password" name="password" id="password" placeholder="请输入密码">
+        </div>
+
+        <div class="bottom-swapper">
+            <button id="submit" data-options="login" onclick="login.submitClick()">登录</button>
+        </div>
+
+        <div class="operation" style="text-align: center">
+            <a href="register">免费注册</a>|
+            <a href="">忘记密码</a>
+        </div>
+    </div>
+</main>
+{include file="common/footer" /}
+</body>
+<script>
+    var url = "{$Think.config.url}";
+</script>
+<script src="__STATIC__/index/js/login.js"></script>
+
+</html>

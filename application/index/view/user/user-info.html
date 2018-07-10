@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="__STATIC__/amazeui/css/amazeui.min.css">
+    <link rel="stylesheet" href="__STATIC__/amazeui/css/app.css">
+
+    <link rel="stylesheet" href="__STATIC__/index/css/user.css">
+    <link rel="stylesheet" href="__STATIC__/index/css/user-info.css">
+
+ 
+</head>
+<body>
+{include file="common/import" /}
+<header>
+    <span style="width:22%">路友通</span>
+    <div class="search">用户个人信息</div>
+</header>
+    <div id="service">
+        <div class="serviceList" style="margin-top: 15%">
+            <a href="javascript:void(0)">
+                <div class="list" data-optinos = "#alertusername">
+                    <label for="">用户名</label>
+                    <i class="arrow"></i>
+                </div>
+            </a>
+
+            <a href="javascript:void(0)">
+                <div class="list" data-optinos = "#alertpwd">
+                    <label for="">登录密码</label>
+                    <i class="arrow"></i>
+                </div>
+            </a>
+
+            <a href="javascript:void(0)">
+                <div class="list" data-optinos = "#alertsex">
+                    <label for="">性别</label>
+                    <i class="arrow"></i>
+                </div>
+            </a>
+            <a href="javascript:void(0)">
+                <div class="list" data-optinos = "#alerttel">
+                    <label for="">联系方式</label>
+                    <i class="arrow"></i>
+                </div>
+            </a>
+         </div>
+    </div>
+
+    <div class="alterInfo">
+        <div id="alertusername">
+            <div id="back" style="margin-bottom: 0">
+                <a href="javascript:void(0)">
+                    <span onclick = "info.backClick();"></span>
+                </a>
+                <div class="white-block"></div>
+            </div>
+            <form action="" method="get" id="alterNameForm">
+                <input type="hidden" name="cate" value="user">
+                <div class="lists">
+                    <label for="username">用户名</label>
+                    <input type="text" id="username" name="username" value="{$name}">
+                </div>
+                <div class="lists">
+                    <input type="submit"  value="完成" >
+                </div>
+            </form>
+        </div>
+
+        <div id="alertpwd">
+                <div id="back" style="margin-bottom: 0">
+                    <a href="javascript:void(0)">
+                        <span onclick = "info.backClick();"></span>
+                    </a>
+                    <div class="white-block"></div>
+                </div>
+                <form action="" method="get" id="alterPwdForm">
+                    <input type="hidden" name="cate" value="pwd">
+                    <div class="lists">
+                        <label for="pwd">密码</label>
+                        <input type="text" id="pwd" name="pwd" value="">
+                    </div>
+                    <div class="lists">
+                        <input type="submit"  value="完成" >
+                    </div>
+                </form>
+            </div>
+
+            <div id="alertsex">
+                <div id="back" style="margin-bottom: 0">
+                    <a href="javascript:void(0)">
+                        <span onclick = "info.backClick();"></span>
+                    </a>
+                    <div class="white-block"></div>
+                </div>
+                <form action="" method="get" id="alterSexForm">
+                    <input type="hidden" name="cate" value="sex">
+                    <div class="lists">
+                        <label for="username">性别</label>
+                        <select data-am-selected>
+                            <option {if condition="($sex eq '男')"} selected {/if} value="男">男</option>
+                            <option {if condition="($sex eq '女')"} selected {/if} value="女" >女</option>
+                        </select>
+                    
+                    </div>
+                    <div class="lists">
+                        <input type="submit" onclick="info.alterSex()"  value="完成" >
+                    </div>
+                </form>
+            </div>
+
+            <div id="alerttel">
+                <div id="back" style="margin-bottom: 0">
+                    <a href="javascript:void(0)">
+                        <span onclick = "info.backClick();"></span>
+                    </a>
+                    <div class="white-block"></div>
+                </div>
+                <form action="" method="get" id="alterTelForm">
+                    <input type="hidden" name="cate" value="tel">
+                    <div class="lists">
+                        <label for="username">联系方式</label>
+                        <input type="text" id="tel" name="tel" value="{$tel}">
+                    </div>
+                    <div class="lists">
+                        <input type="submit"  value="完成" >
+                    </div>
+                </form>
+            </div>
+
+    </div>
+
+</main>
+
+<footer>
+    <div class="list icon1" index="index">
+        <a href="{$Think.config.url}/index">
+            <div class="items-icon">
+            </div>
+            <span>站站</span>
+        </a>
+    </div>
+    <div class="list icon2" index="train">
+        <a href="{$Think.config.url}/train">
+            <div class="items-icon">
+            </div>
+            <span>车次</span>
+        </a>
+    </div>
+    <div class="list icon3" index="station">
+        <a href="{$Think.config.url}/station">
+            <div class="items-icon">
+            </div>
+            <span>站点</span>
+        </a>
+    </div>
+    <div class="list icon4 active" index="user">
+        <a href="{$Think.config.url}/user">
+            <div class="items-icon">
+            </div>
+            <span>用户</span>
+        </a>
+    </div>
+</footer>
+</body>
+<script src="__STATIC__/amazeui/js/amazeui.min.js"></script>
+
+<script src="__STATIC__/index/js/info-user.js"></script>
+</html>

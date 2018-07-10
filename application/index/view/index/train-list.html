@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路友通</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="__STATIC__/index/css/search_station.css">
+    <link rel="stylesheet" href="__STATIC__/index/css/train-list.css">
+
+</head>
+<script>
+    var current = ("{$current}").length>0?("{$current}"):"";
+</script>
+<body class="">
+{include file="common/import" /}
+<header>
+    <span>路友通</span>
+    <div class="search">火车列表查询</div>
+</header>
+
+<main>
+    <div id="back">
+        <a href="javascript:history.go(-1)">
+            <span></span>
+        </a>
+        <div class="white-block" style="text-align: center">{$time}</div>
+    </div>
+    <!--<div class="title" style="text-align: center">-->
+        <!--2018-05-28-->
+    <!--</div>-->
+    <div class="top-wrapper">
+        <ul class="train-list">
+            <li class="lists">
+                <p class="start_img"></p>
+                <p></p>
+                <p class="end_img"></p>
+            </li>
+            {volist name="trainList" id="items"}
+                <li>
+                    <a class="clearfix" href="{$Think.config.url}/index/trainList/details/id/{$items.train_no}">
+                        <div class="list-top">
+                            <p class="Ltime">{$items.start_time}</p>
+                            <p class="trainNum">{$items.train_no}</p>
+                            <p class="Ltime">{$items.end_time}</p>
+                        </div>
+                        <div class="list-middle">
+                            <p class="Lstation">{$items.start_station}</p>
+                            <p class="longTime">{$items.run_time}</p>
+                            <p class="Lstation">{$items.end_station}</p>
+                        </div>
+                        <div class="list-bottom">
+                            {volist name="items.price_list" id="price"}
+                                <p class="txt">{$price.price_type}</p>
+                            {/volist}
+                        </div>
+                    </a>
+                </li>
+            {/volist}
+        </ul>
+    </div>
+</main>
+{include file="common/footer"/}
+</body>
+<link rel="stylesheet" href="__STATIC__/index/css/index.css">
+<script src="__STATIC__/index/js/index.js"></script>
+<script>
+    footer.trainListClick();
+</script>
+</html>

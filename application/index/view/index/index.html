@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路友通</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="__STATIC__/index/css/search_station.css">
+</head>
+<body class="">
+{include file="common/import" /}
+{include file="common/header" /}
+<main>
+    <div class="top-wrapper">
+        <div class="station" id="start-station">
+            <span>出发站</span><br>
+            <p class="direction start_station" data-options="上海">上海</p>
+            <!--<input type="text" class="start_station" value="上海">-->
+        </div>
+        <div class="item-icon">
+            <a href="javascript:void(0)">
+                返程<br>
+                <img src="__STATIC__/index/img/icon/arrows.png" alt="arrows">
+            </a>
+        </div>
+        <div class="station" id="end-station">
+            <span>出发站</span><br>
+            <!--<input type="text" class="end_station" value="北京">-->
+            <p class="direction end_station" data-options="北京">北京</p>
+        </div>
+    </div>
+    <div class="middle-wrapper">
+        <!--<div class="list">-->
+            <!--<label for="">订票类型</label>-->
+            <!--<div class="span" id="type">-->
+                <!--<input type="radio" name="type" value="普通" checked>普通-->
+                <!--<input type="radio" name="type" value="学生">学生-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <div class="list" id="time">
+            <label for="">乘坐日期</label>
+            <!--id="dateTime"-->
+            <div class="span"  style="width: 70%;text-align: center">
+                <i class="time"></i>
+                <p id="show-time" data-options=""></p>
+                <i class="arrow"></i>
+            </div>
+        </div>
+
+        <div class="list">
+            <div class="span" id="searchType">
+                <div class="block">
+                    <input class="studentCheck" type="checkbox" name="studentCheck" value="学生票查询" data-options="0">学生票查询
+                </div>
+                <div class="block">
+                    <input class="GDCheck" type="checkbox" name="GDCheck" value="只看高铁动车" data-options="0">只看高铁动车
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="bottom-swapper">
+        <button id="submit" data-options="{:url('index/index/index')}">查询</button>
+    </div>
+
+    <div id="calender-wrapper">
+        <div id="calender" style="width:270px;margin: auto;height: 220px"></div>
+    </div>
+
+
+    <div id="search-wrapper">
+        {include file="common/search_station" /}
+    </div>
+</main>
+{include file="common/footer" /}
+</body>
+<script>
+    var url = "{$Think.config.url}";
+</script>
+<link rel="stylesheet" href="__STATIC__/index/css/index.css">
+<script src="__STATIC__/index/js/index.js"></script>
+</html>

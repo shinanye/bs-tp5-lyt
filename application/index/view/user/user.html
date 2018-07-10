@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>路友通</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <link rel="stylesheet" href="__STATIC__/index/css/user.css">
+</head>
+<body>
+    {include file="common/import" /}
+    {include file="common/header" /}
+    <main>
+        <div id="service">
+            <h6>我的超能力</h6>
+            <div class="serviceList">
+                <a href="{$Think.config.url}/user/currentUser">
+                    <div class="list">
+                        <label for="">当前用户</label>
+                        <i class="arrow"></i>
+                    </div>
+                </a>
+
+                <a href="index">
+                    <div class="list">
+                        <label for="">在线订票</label>
+                        <i class="arrow"></i>
+                    </div>
+                </a>
+
+                <a href="order">
+                    <div class="list">
+                        <label for="">我的订单</label>
+                        <i class="arrow"></i>
+                    </div>
+                </a>
+
+                <a href="{$Think.config.url}/user/userinfo">
+                    <div class="list">
+                        <label for="">个人信息</label>
+                        <i class="arrow"></i>
+                    </div>
+                </a>
+
+              <div class="serviceList others">
+                  <h6>路有通爱心连</h6>
+                  <a href="">
+                      <div class="list">
+                          <label for="">关于我们</label>
+                          <i class="arrow"></i>
+                      </div>
+                  </a>
+
+                  <a href="">
+                      <div class="list">
+                          <label for="">版本</label>
+                          <i class="arrow"></i>
+                      </div>
+                  </a>
+
+                  <a href="">
+                      <div class="list">
+                          <label for="">帮助说明</label>
+                          <i class="arrow"></i>
+                      </div>
+                  </a>
+
+                  <a href="">
+                      <div class="list">
+                          <label for="">分享</label>
+                          <i class="arrow"></i>
+                      </div>
+                  </a>
+
+                  <a href="service">
+                      <div class="list">
+                          <label for="">生活服务</label>
+                          <i class="arrow"></i>
+                      </div>
+                  </a>
+
+                  <a href="javascript:void(0);" id="lagout">
+                      <div class="list" onclick="tool.lagout()">
+                          <label for="">退出</label>
+                          <i class="arrow"></i>
+                      </div>
+                  </a>
+              </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="list icon1" index="index">
+            <a href="{$Think.config.url}/index">
+                <div class="items-icon">
+                </div>
+                <span>站站</span>
+            </a>
+        </div>
+        <div class="list icon2" index="train">
+            <a href="{$Think.config.url}/train">
+                <div class="items-icon">
+                </div>
+                <span>车次</span>
+            </a>
+        </div>
+        <div class="list icon3" index="station">
+            <a href="{$Think.config.url}/station">
+                <div class="items-icon">
+                </div>
+                <span>站点</span>
+            </a>
+        </div>
+        <div class="list icon4 active" index="user">
+            <a href="{$Think.config.url}/user">
+                <div class="items-icon">
+                </div>
+                <span>用户</span>
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
